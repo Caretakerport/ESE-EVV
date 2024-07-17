@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESE EVV WORK SYSTEM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p><strong>Review Tasks - ESE EVV WORK SYSTEM</strong></p>
+        </div>
+        <div class="main">
+            <label for="reviewNameDropdown">Select Name:</label>
+            <select id="reviewNameDropdown">
+                <option value="" selected disabled>Select Name</option>
+            </select>
+            <ul id="reviewTaskList"></ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewNameDropdown = document.getElementById('reviewNameDropdown');
+            const reviewTaskList = document.getElementById('reviewTaskList');
+
+            const users = [
+                { name: "Adam", inc: "CCSP" },
+                { name: "Green", inc: "ABC" },
+                { name: "Blue", inc: "XYZ" }
+            ];
+
+            // Populate name dropdown for review
+            users.forEach(user => {
+                const option = document.createElement('option');
+                option.value = user.name;
+                option.textContent = user.name;
+                reviewNameDropdown.appendChild(option);
+            });
+
+            reviewNameDropdown.addEventListener('change', () => {
+                loadTasks(reviewNameDropdown.value);
+            });
+
+            function loadTasks(userName) {
+                reviewTaskList.innerHTML = '';
+                const tasks = JSON.parse(localStorage.getItem(`tasks_${userName}`));
+                if (tasks) {
+                    tasks.forEach(taskText => {
+                        const li = document.createElement('li');
+                        li.textContent = taskText;
+
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.textContent = 'Delete';
+                        deleteBtn.classList.add('delete');
+                        deleteBtn.addEventListener('click', () => {
+                            deleteTask(userName, taskText);
+                            reviewTaskList.removeChild(li);
+                        });
+
+                        li.appendChild(deleteBtn);
+                        reviewTaskList.appendChild(li);
+                    });
+                }
+            }
+
+            function deleteTask(userName, taskText) {
+                let tasks = JSON.parse(localStorage.getItem(`tasks_${userName}`)) || [];
+                tasks = tasks.filter(task => task !== taskText);
+                localStorage.setItem(`tasks_${userName}`, JSON.stringify(tasks));
+            }
+        });
+    </script>
+</body>
+</html>

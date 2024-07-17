@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESE EVV WORK SYSTEM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p><strong>ESE EVV WORK SYSTEM</strong></p>
+        </div>
+        <div class="main">
+            <div class="left">
+                <label for="nameDropdown">Select Name:</label>
+                <select id="nameDropdown">
+                    <option value="" selected disabled>Select Name</option>
+                </select>
+                <p id="insuranceDisplay">INC: </p>
+            </div>
+            <div class="right">
+                <label for="dateInput">Selected Task Date:</label>
+                <input type="date" id="dateInput">
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="taskBtn" data-color="green">Green</button>
+            <button class="taskBtn" data-color="blue">Blue</button>
+            <button class="taskBtn" data-color="noWork">X</button>
+        </div>
+        <div class="footer">
+            <ul id="taskList"></ul>
+        </div>
+        <button class="reviewBtn" onclick="window.open('review.html', '_blank')">Review</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

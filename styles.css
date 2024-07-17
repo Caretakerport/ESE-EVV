@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 1000px; /* Adjusted width to make it wider */
+    border: 3px solid #000;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header, .footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5em;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+}
+
+.footer {
+    border-bottom: none;
+    border-top: 2px solid #000;
+    padding: 20px 0;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.left label, .right label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.taskBtn {
+    width: 100px;
+    height: 40px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.taskBtn[data-color="green"] {
+    background-color: green;
+    color: white;
+}
+
+.taskBtn[data-color="blue"] {
+    background-color: blue;
+    color: white;
+}
+
+.taskBtn[data-color="noWork"] {
+    background-color: red;
+    color: white;
+}
+
+.taskBtn:hover {
+    opacity: 0.8;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+.checkin {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.checkin:hover {
+    background-color: darkgreen;
+}
+
+.reviewBtn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.reviewBtn:hover {
+    background-color: #0056b3;
+}
